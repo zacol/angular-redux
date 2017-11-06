@@ -1,15 +1,17 @@
-import * as usersActions from '../actions/users.actions';
-
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
+import * as usersActions from '../actions/users.actions';
+
+import { User } from '../models/users.models';
+
 export interface State {
-  data: any;
+  data: User[];
   errors: any[];
   isFetching: boolean;
 }
 
 const initialState: State = {
-  data: {},
+  data: [],
   errors: [],
   isFetching: false,
 };

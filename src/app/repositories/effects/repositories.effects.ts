@@ -29,8 +29,8 @@ import * as repositories from '../actions/repositories.actions';
 export class RepositoriesEffects {
   @Effect()
   getRepositories$: Observable<Action> = this.actions$
-    .ofType<repositories.GetRepositoriesRequestAction>(repositories.ActionTypes.GET_REPOSITORIES_REQUEST)
-    .map(action => action.payload)
+    .ofType(repositories.ActionTypes.GET_REPOSITORIES_REQUEST)
+    .map((action: repositories.GetRepositoriesRequestAction) => action.payload)
     .switchMap(payload => {
       return this.gitHubService.getRepositories(payload)
         .map(response => new repositories.GetRepositoriesSuccessAction(response))

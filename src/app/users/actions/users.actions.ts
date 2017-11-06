@@ -2,6 +2,8 @@ import { Action } from '@ngrx/store';
 
 import { type } from '../../utils';
 
+import { User } from '../models/users.models';
+
 const ACTION_PREFIX = '[Users]';
 
 export const ActionTypes = {
@@ -26,7 +28,7 @@ export class GetUsersRequestAction implements Action {
 export class GetUsersSuccessAction implements Action {
   type = ActionTypes.GET_USERS_SUCCESS;
 
-  constructor(public payload?: any) {}
+  constructor(public payload?: User[]) {}
 }
 
 export class GetUsersErrorAction implements Action {

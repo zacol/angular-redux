@@ -1,15 +1,17 @@
-import * as repositoriesActions from '../actions/repositories.actions';
-
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
+import * as repositoriesActions from '../actions/repositories.actions';
+
+import { Repository } from '../models/repositories.models';
+
 export interface State {
-  data: any;
+  data: Repository[];
   errors: any[];
   isFetching: boolean;
 }
 
 const initialState: State = {
-  data: {},
+  data: [],
   errors: [],
   isFetching: false,
 };

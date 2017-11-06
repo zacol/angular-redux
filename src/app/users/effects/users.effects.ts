@@ -29,8 +29,8 @@ import * as users from '../actions/users.actions';
 export class UsersEffects {
   @Effect()
   getUsers$: Observable<Action> = this.actions$
-    .ofType<users.GetUsersRequestAction>(users.ActionTypes.GET_USERS_REQUEST)
-    .map(action => action.payload)
+    .ofType(users.ActionTypes.GET_USERS_REQUEST)
+    .map((action: users.GetUsersRequestAction) => action.payload)
     .switchMap(payload => {
       return this.gitHubService.getUsers(payload)
         .map(response => new users.GetUsersSuccessAction(response))

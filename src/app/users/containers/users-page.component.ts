@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import * as fromUsers from '../reducers/users.reducer';
 import * as users from '../actions/users.actions';
 
+import { User } from '../models/users.models';
+
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -16,7 +18,7 @@ import * as users from '../actions/users.actions';
   `,
 })
 export class UsersPageComponent implements OnInit {
-  users$: Observable<any>;
+  users$: Observable<User[]>;
 
   constructor(private store: Store<fromUsers.State>) {
     this.users$ = store.select(fromUsers.selectUsersData);

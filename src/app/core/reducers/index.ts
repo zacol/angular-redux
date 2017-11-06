@@ -1,6 +1,8 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import * as fromRouter from '@ngrx/router-store';
+import * as fromRepositories from '../../repositories/reducers/repositories.reducer';
+import * as fromUsers from '../../users/reducers/users.reducer';
 
 import { RouterStateUrl } from '../../utils';
 
@@ -19,6 +21,8 @@ import { storeFreeze } from 'ngrx-store-freeze';
  */
 export interface State {
   router: fromRouter.RouterReducerState<RouterStateUrl>;
+  repositories?: fromRepositories.State;
+  users?: fromUsers.State;
 }
 
 /**

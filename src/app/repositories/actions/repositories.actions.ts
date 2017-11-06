@@ -2,6 +2,8 @@ import { Action } from '@ngrx/store';
 
 import { type } from '../../utils';
 
+import { Repository } from '../models/repositories.models';
+
 const ACTION_PREFIX = '[Repositories]';
 
 export const ActionTypes = {
@@ -26,7 +28,7 @@ export class GetRepositoriesRequestAction implements Action {
 export class GetRepositoriesSuccessAction implements Action {
   type = ActionTypes.GET_REPOSITORIES_SUCCESS;
 
-  constructor(public payload?: any) {}
+  constructor(public payload?: Repository[]) {}
 }
 
 export class GetRepositoriesErrorAction implements Action {

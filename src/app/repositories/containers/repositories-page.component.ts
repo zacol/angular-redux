@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import * as fromRepositories from '../reducers/repositories.reducer';
 import * as repositories from '../actions/repositories.actions';
 
+import { Repository } from '../models/repositories.models';
+
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -16,7 +18,7 @@ import * as repositories from '../actions/repositories.actions';
   `,
 })
 export class RepositoriesPageComponent implements OnInit {
-  repositories$: Observable<any>;
+  repositories$: Observable<Repository[]>;
 
   constructor(private store: Store<fromRepositories.State>) {
     this.repositories$ = store.select(fromRepositories.selectRepositoriesData);
