@@ -25,6 +25,6 @@ export class UsersPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new users.GetUsersRequestAction());
+    this.store.dispatch(new users.GetUsersRequestAction(1));
   }
 }

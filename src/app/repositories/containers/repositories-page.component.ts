@@ -25,6 +25,6 @@ export class RepositoriesPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new repositories.GetRepositoriesRequestAction());
+    this.store.dispatch(new repositories.GetRepositoriesRequestAction(1));
   }
 }

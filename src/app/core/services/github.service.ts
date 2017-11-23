@@ -9,11 +9,25 @@ export class GitHubService {
 
   constructor(private http: HttpClient) {}
 
-  getRepositories(login: string): Observable<any> {
-    return this.http.get(`${this.API_PATH}/repositories?since=1`);
+  /**
+   * Repository endpoint
+   *
+   * @param {number} since Start element
+   * @returns {Observable<any>} Returns a list of GitHub repositories
+   * @memberof GitHubService
+   */
+  getRepositories(since: number): Observable<any> {
+    return this.http.get(`${this.API_PATH}/repositories?since=${since}`);
   }
 
-  getUsers(login: string): Observable<any> {
-    return this.http.get(`${this.API_PATH}/users?since=1`);
+  /**
+   * Users endpoint
+   *
+   * @param {number} since Start element
+   * @returns {Observable<any>} Returns a list of GitHub users
+   * @memberof GitHubService
+   */
+  getUsers(since: number): Observable<any> {
+    return this.http.get(`${this.API_PATH}/users?since=${since}`);
   }
 }

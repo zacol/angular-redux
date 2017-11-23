@@ -12,13 +12,6 @@ export const ActionTypes = {
   GET_USERS_ERROR: type(`${ACTION_PREFIX} Get Users Error`),
 };
 
-/**
- * Every action is comprised of at least a type and an optional
- * payload. Expressing actions as classes enables powerful
- * type checking in reducer functions.
- *
- * See Discriminated Unions: https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
- */
 export class GetUsersRequestAction implements Action {
   type = ActionTypes.GET_USERS_REQUEST;
 
