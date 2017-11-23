@@ -1,0 +1,36 @@
+<div class="ui container">
+
+      <div class="ui menu">
+        <div class="header item">
+          Angular in love with Redux
+        </div>
+        <a routerLink="/users" class="item">
+          GitHub users
+        </a>
+        <a routerLink="/repositories" class="item active">
+          GitHub repositories
+        </a>
+        <div *ngIf="repositoriesIsFetching$ | async" class="right menu">
+          <div class="item">
+            <div class="ui active inline loader mini"></div>
+          </div>
+        </div>
+      </div>
+
+      <table class="ui celled striped table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let repository of (repositoriesData$ | async)">
+            <td class="collapsing">{{ repository.name }}</td>
+            <td class="collapsing">{{ repository.owner.login }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+

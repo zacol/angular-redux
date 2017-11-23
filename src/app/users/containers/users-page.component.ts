@@ -9,19 +9,15 @@ import { User } from '../models/users.models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <h1>Users</h1>
-    <a routerLink="/repositories">See repositories</a>
-    <div>
-      {{ users$ | async | json }}
-    </div>
-  `,
+  templateUrl: './users-page.component.html',
 })
 export class UsersPageComponent implements OnInit {
-  users$: Observable<User[]>;
+  usersData$: Observable<User[]>;
+  usersIsFetching$: Observable<boolean>;
 
   constructor(private store: Store<fromUsers.State>) {
-    this.users$ = store.select(fromUsers.selectUsersData);
+    this.usersData$ = store.select(fromUsers.selectUsersData);
+    this.usersIsFetching$ = store.select(fromUsers.selectUsersIsFetching);
   }
 
   ngOnInit() {

@@ -9,19 +9,15 @@ import { Repository } from '../models/repositories.models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <h1>Repositories</h1>
-    <a routerLink="/users">See users</a>
-    <div>
-      <pre>{{ repositories$ | async | json }}</pre>
-    </div>
-  `,
+  templateUrl: './repositories-pages.component.html',
 })
 export class RepositoriesPageComponent implements OnInit {
-  repositories$: Observable<Repository[]>;
+  repositoriesData$: Observable<Repository[]>;
+  repositoriesIsFetching$: Observable<boolean>;
 
   constructor(private store: Store<fromRepositories.State>) {
-    this.repositories$ = store.select(fromRepositories.selectRepositoriesData);
+    this.repositoriesData$ = store.select(fromRepositories.selectRepositoriesData);
+    this.repositoriesIsFetching$ = store.select(fromRepositories.selectRepositoriesIsFetching);
   }
 
   ngOnInit() {
